@@ -32,10 +32,16 @@ public class ProductController {
     }
 
     @PutMapping("/{product_id}")//update put
-        public Products updateProductById(@PathVariable Integer product_id,@RequestBody Products product){
-        return productService.updateProductById(product_id,product);
-
+        public Products updateProductById(@PathVariable Integer product_id,@RequestBody Products product) {
+        return productService.updateProductById(product_id, product);
     }
+
+        @PatchMapping("/{product_id}")  //update certain fiels
+        public Products updateOnlyFields(@PathVariable Integer product_id,@RequestBody Products product)
+        {
+            return productService.updateOnlyFields(product_id,product);
+        }
+
     }
 
 
